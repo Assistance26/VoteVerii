@@ -1,0 +1,100 @@
+enum Role {
+  ADMIN
+  VOTER
+  CANDIDATE
+}
+
+model User {
+  id           Int        @id @default(autoincrement())
+  email        String     @unique
+  name         String
+  role         Role       @default(VOTER)
+  createdAt    DateTime   @default(now())
+
+  candidate     Candidate?
+  voterToken    VoterToken?
+  comments      Comment[]
+  likedPosts    SocialPost[] @relation("UserLikesPosts")
+}
+
+model Candidate {
+  id          Int       @id @default(autoincrement())
+  user        User      @relation(fields: [userId], references: [id])
+  userId      Int       @unique
+
+  electionId  Int
+  election    Election  @relation(fields: [electionId], references: [id])
+
+  name        String
+  bio         String
+  vision      String
+
+  content     CandidateContent[]
+  socialPosts SocialPost[]
+  votes       Vote[]
+
+  @@index([electionId])
+}
+
+model CandidateContent {
+  id             Int        @id @default(autoincrement())
+  candidate      Candidate  @relation(fields: [candidateId], references: [id])
+  candidateId    Int
+  contentText    String
+  uploadedAt     DateTime   @default(now())
+}
+
+model AnalysisResult {
+  id             String      @id @default(uuid())
+  inputText      String
+  toxicityScore  Float
+  isBiased       Boolean
+  isPlagiarized  Boolean
+  factCheck      String
+  createdAt      DateTime    @default(now())
+
+  socialPost     SocialPost? @relation(fields: [socialPostId], references: [id])
+  socialPostId   Int?        @unique
+}
+
+
+model Chatbot {
+  id          Int      @id @default(autoincrement())
+  name        String
+  vision      String
+  bio         String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model SocialPost {
+  id             Int           @id @default(autoincrement())
+  candidate      Candidate     @relation(fields: [candidateId], references: [id])
+  candidateId    Int
+  content        String
+  imageUrl       String?
+  postedAt       DateTime      @default(now())
+
+  analysis       AnalysisResult?
+  likedBy        User[]        @relation("UserLikesPosts")
+  comments       Comment[]
+
+  @@index([candidateId])
+}
+
+
+model Comment {
+  id         Int        @id @default(autoincrement())
+  content    String
+  createdAt  DateTime   @default(now())
+
+  user       User       @relation(fields: [userId], references: [id])
+  userId     Int
+
+  post       SocialPost @relation(fields: [postId], references: [id])
+  postId     Int
+
+  @@index([postId])
+}
+
+
