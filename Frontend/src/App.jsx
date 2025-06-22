@@ -77,6 +77,7 @@ function App() {
         {/* Candidate Routes */}
         <Route path="/candidate" element={<CandidateRoute />}>
           <Route index element={<CandidateDashboard />} />
+          <Route path="campaign" element={<VoterCampaignList />} />
           <Route path="dashboard" element={<CandidateDashboard />} />
           <Route path="add-campaign" element={<AddCampaign />} />
           {/* <Route path="campaigns" element={<CandidateCampaignList />} /> */}

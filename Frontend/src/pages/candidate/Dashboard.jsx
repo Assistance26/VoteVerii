@@ -129,7 +129,7 @@ export default function CandidateDashboard() {
       color: "teal",
       icon: <FiAward className="w-6 h-6" />,
       linkText: "Manage Campaigns",
-      to: "/candidate/add-campaign"
+      to: "/candidate/campaign"
     },
     {
       title: "Participating Elections",
@@ -137,15 +137,15 @@ export default function CandidateDashboard() {
       color: "purple",
       icon: <FiBarChart2 className="w-6 h-6" />,
       linkText: "View Elections",
-      to: "/candidate/participate-vote"
+      to: "/candidate/participate-election"
     },
     {
       title: "Total Votes Received",
-      value: "124",
+      value: "4",
       color: "amber",
       icon: <FiActivity className="w-6 h-6" />,
       linkText: "View Details",
-      to: "/candidate/registered-vote"
+      to: "/candidate/election-reports"
     }
   ];
 
@@ -296,7 +296,7 @@ export default function CandidateDashboard() {
                 className="p-4 text-center border-t border-gray-800 hover:bg-gray-800/50 transition-colors"
               >
                 <Link 
-                  to="/candidate/activity" 
+                  to="/candidate/#" 
                   className="text-teal-400 font-medium flex items-center justify-center gap-2"
                 >
                   View all activity <FiArrowRight className="w-4 h-4" />

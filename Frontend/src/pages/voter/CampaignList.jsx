@@ -20,10 +20,13 @@ export default function CampaignList() {
         const token = currentUser ? await currentUser.getIdToken() : null;
 
         const res = await axios.get('http://localhost:5000/api/posts/all', {
-          headers: token ? { Authorization: `Bearer ${token}` } : {}
-        });
 
+          headers: token ? { Authorization: `Bearer ${token}` } : {}
+
+        });
+        console.log('Response from API:', res.data);
         const formatted = res.data.data.map(post => ({
+
           id: post.id,
           title: post.title,
           description: post.description,

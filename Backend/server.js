@@ -24,6 +24,10 @@ app.use('/api/chatbot', require('./routes/chatbotRoutes'));
 app.use('/api/election', require('./routes/electionReportRoutes'));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/api/analysis', require('./routes/analysisRoutes'));
+
+
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

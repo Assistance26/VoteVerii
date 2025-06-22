@@ -22,8 +22,7 @@ export default function CandidateNavbar() {
     { name: "Home", path: "/candidate", icon: <FiHome className="w-5 h-5" /> },
     { name: "Add Campaign", path: "/candidate/add-campaign", icon: <FiPlusCircle className="w-5 h-5" /> },
     { name: "Participate", path: "/candidate/participate-election", icon: <FiCheckCircle className="w-5 h-5" /> },
-    { name: "Reports", path: "/candidate/election-reports", icon: <FiBarChart2 className="w-5 h-5" /> },
-    { name: "Profile", path: "/candidate/profile", icon: <FiUser className="w-5 h-5" /> }
+    { name: "Reports", path: "/candidate/election-reports", icon: <FiBarChart2 className="w-5 h-5" /> }
   ];
 
   const handleLogout = async () => {

@@ -23,7 +23,6 @@ export default function VoterNavbar({ activeTab, setActiveTab }) {
     { name: "Campaign", path: "/voter/campaign", icon: <FiFlag className="w-5 h-5" /> },
     { name: "Election List", path: "/voter/election-list", icon: <FiCheckSquare className="w-5 h-5" /> },
     { name: "Reports", path: "/voter/election-reports", icon: <FiBarChart2 className="w-5 h-5" /> },
-    { name: "Profile", path: "/voter/profile", icon: <FiUser className="w-5 h-5" /> }
   ];
 
   const handleLogout = async () => {

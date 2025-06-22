@@ -23,7 +23,7 @@ export default function VoterDashboard() {
   }, []);
 
   const stats = [
-    { id: 1, title: "Active Elections", value: 3, icon: <FiAward className="w-6 h-6" />, color: "from-teal-400 to-cyan-500", link: "/voter/cast-vote" },
+    { id: 1, title: "Active Elections", value: 3, icon: <FiAward className="w-6 h-6" />, color: "from-teal-400 to-cyan-500", link: "/voter/election-list" },
     { id: 2, title: "Votes Cast", value: 5, icon: <FiCheckCircle className="w-6 h-6" />, color: "from-purple-400 to-fuchsia-500", link: "/voter/election-reports" },
     { id: 3, title: "Campaigns", value: 12, icon: <FiTrendingUp className="w-6 h-6" />, color: "from-amber-400 to-orange-500", link: "/voter/campaign" }
   ];
@@ -223,7 +223,7 @@ export default function VoterDashboard() {
                   whileHover={{ scale: 1.01 }}
                   className="p-4 text-center border-t border-gray-800 hover:bg-gray-800/50 transition-colors"
                 >
-                  <Link to="/voter/upcoming-elections" className="text-teal-400 font-medium flex items-center justify-center gap-2">
+                  <Link to="/voter/election-list" className="text-teal-400 font-medium flex items-center justify-center gap-2">
                     View all upcoming elections <FiArrowRight className="w-4 h-4" />
                   </Link>
                 </motion.div>
